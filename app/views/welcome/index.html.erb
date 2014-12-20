@@ -49,16 +49,8 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
+                
                 <ul class="nav navbar-nav">
-                    <% if current_user %>
-                        <li><%= link_to('登出', destroy_user_session_path, :method => :delete) %></li>
-                        <li><%= link_to('修改密碼', edit_registration_path(:user)) %></li>
-                    <% else %>
-                        <li><%= link_to('註冊', new_registration_path(:user)) %></li>
-                        <li><%= link_to('登入', new_session_path(:user)) %></li>
-                    <% end %>
-
                     <li>
                         <%= link_to "HOME" , root_path %>
                     </li>
@@ -71,7 +63,17 @@
                     <li>
                         <a href="contact.html">Contact</a>
                     </li>
+                    <% if current_user %>
+                        <li><%= link_to('LOG OUT', destroy_user_session_path, :method => :delete) %></li>
+                        <li><%= link_to('CHANGE PASSWORD', edit_registration_path(:user)) %></li>
+                    <% else %>
+                        <li><%= link_to('SIGN UP', new_registration_path(:user)) %></li>
+                        <li><%= link_to('SIGN IN', new_session_path(:user)) %></li>
+                    <% end %>
                 </ul>
+
+                    
+                
             </div>
             <!-- /.navbar-collapse -->
         </div>
