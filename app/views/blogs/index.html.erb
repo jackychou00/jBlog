@@ -1,0 +1,13 @@
+<% if current_user %>
+	<% if current_user.id == 1 %>
+		<%= link_to "New Article", new_blog_path %>
+	<% end %>
+<% end %>
+
+<% @blogs.each do |blog| %>
+  <h3><%= link_to blog.title.html_safe,blog_path(blog.id) %></h3>
+  <td><%= link_to 'Destroy',  blog_path(blog.id), :confirm => 'Are you sure?', :method => :delete %></td>
+  <% if blog != @blogs.last %>
+  <hr />
+  <% end %>
+<% end %>
